@@ -14,27 +14,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TITULO APP"
+        android:text="WorldBook"
         android:fontFamily="cursive"
-        android:textSize="25dp" />
-
+        android:textSize="40dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingrese Correo Clectronico: "
         android:textSize="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="65dp"
         />
-
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textSize="15sp"
         />
 
     <TextView
@@ -66,22 +62,18 @@
         android:layout_marginBottom="20dp"
         app:endIconMode="password_toggle">
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPasswordAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingrese Contraseña nuevamente: "
-        android:textSize="20dp"
-        />
-
+        android:textSize="20dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -91,15 +83,12 @@
         android:layout_marginBottom="20dp"
         app:endIconMode="password_toggle">
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:layout_width="match_parent"
@@ -110,6 +99,4 @@
         android:textColor="@color/vainilla"
         android:background="@color/brown"
         />
-
-
 </LinearLayout>

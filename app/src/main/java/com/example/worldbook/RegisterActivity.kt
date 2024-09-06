@@ -18,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var etNombreUsuario: EditText
     lateinit var etPassword: EditText
     lateinit var etPasswordAgain: EditText
-    lateinit var etEmail:EditText
+    lateinit var etEmail: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,18 +30,18 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
-        btnCrearUsuario=findViewById(R.id.btnCrearUsuario)
-        etNombreUsuario=findViewById(R.id.etNombreUsuario)
-        etPassword=findViewById(R.id.etPassword)
-        etPasswordAgain=findViewById(R.id.etPasswordAgain)
-        etEmail=findViewById(R.id.etEmail)
+        btnCrearUsuario = findViewById(R.id.btnCrearUsuario)
+        etNombreUsuario = findViewById(R.id.etNombreUsuario)
+        etPassword = findViewById(R.id.etPassword)
+        etPasswordAgain = findViewById(R.id.etPasswordAgain)
+        etEmail = findViewById(R.id.etEmail)
 
 
         btnCrearUsuario.setOnClickListener {
-            var email=etEmail.text.toString()
-            var usuario=etNombreUsuario.text.toString()
-            var password=etPassword.text.toString()
-            var passwordAgain=etPasswordAgain.text.toString()
+            var email = etEmail.text.toString()
+            var usuario = etNombreUsuario.text.toString()
+            var password = etPassword.text.toString()
+            var passwordAgain = etPasswordAgain.text.toString()
 
             if (email.isEmpty() || usuario.isEmpty() || password.isEmpty() || passwordAgain.isEmpty() ){
                 var mensaje = "Complete todos los campos"
@@ -55,6 +55,4 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }
