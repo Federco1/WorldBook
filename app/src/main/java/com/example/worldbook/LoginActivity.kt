@@ -11,7 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import com.example.intentologin.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     lateinit var etNombreUsuario: EditText
@@ -58,8 +58,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnCrearUsuario.setOnClickListener {
-            val intent = Intent(this,RegisterActivity::class.java)
-            startActivity(intent)
+            Toast.makeText(this,"Crear Usuario ToDo", Toast.LENGTH_SHORT).show()
 
         }
     }
