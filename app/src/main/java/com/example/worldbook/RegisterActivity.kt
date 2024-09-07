@@ -51,6 +51,9 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this,"Contrasenia no coincide",Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this,"Contrasenia coinciden",Toast.LENGTH_SHORT).show()
+                    //te lleva a "Terminos y condiciones"
+                    val intent = Intent(this, TerminosYCondicionesActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }

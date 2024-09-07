@@ -28,7 +28,7 @@ class TerminosYCondicionesActivity : AppCompatActivity() {
         btnAceptarTyC = findViewById(R.id.btn_aceptar_tyc)
         btnAceptarTyC.setOnClickListener {
             Log.i("TODO", "Se aceptan los términos y condiciones")
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }
