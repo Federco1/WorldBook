@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                 if(cbRecordarUsuario.isChecked){
                     Log.i("TODO","Funcionalidad de recordar usuario y contraseña")
                 }
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this,HomeActivity::class.java)
                 intent.putExtra("NOMBRE",usuario)
                 startActivity(intent)
                 finish()
