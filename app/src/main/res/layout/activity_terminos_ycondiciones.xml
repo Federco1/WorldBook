@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/vainilla"
     tools:context=".TerminosYCondicionesActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Título de términos y condiciones -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text="Términos y Condiciones"
+        android:fontFamily="cursive"
+        android:textSize="30dp"
+        android:textColor="@color/black" />
+
+    <!-- ScrollView para el contenido de términos y condiciones -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="12dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="Si no tienes la edad mínima para poder gestionar tu propia cuenta de Google, debes contar con el permiso de tu padre, madre o tutor legal para utilizar una cuenta de Google. Pide a tu padre, madre o tutor legal que lea estos términos contigo.
+
+                            Si eres padre, madre o tutor legal y permites a tu hijo/a que utilice los servicios, se te aplican estos términos y eres responsable de la actividad que realice en los servicios.
+
+                            Algunos servicios de Google tienen requisitos de edad mínima adicionales, como se describe en sus términos y políticas adicionales específicos." />
+    </ScrollView>
+
+    <!-- Botón aceptar -->
+    <Button
+        android:id="@+id/btn_aceptar_tyc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Aceptar"
+        android:textColor="@color/vainilla"
+        android:background="@color/brown" />
+</LinearLayout>
