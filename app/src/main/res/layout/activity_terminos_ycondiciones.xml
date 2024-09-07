@@ -10,7 +10,7 @@
     android:background="@color/vainilla"
     tools:context=".TerminosYCondicionesActivity">
 
-    <!-- Título de términos y condiciones -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,10 +18,9 @@
         android:gravity="center"
         android:text="Términos y Condiciones"
         android:fontFamily="cursive"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textColor="@color/black" />
 
-    <!-- ScrollView para el contenido de términos y condiciones -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -30,16 +29,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
-            android:text="Si no tienes la edad mínima para poder gestionar tu propia cuenta de Google, debes contar con el permiso de tu padre, madre o tutor legal para utilizar una cuenta de Google. Pide a tu padre, madre o tutor legal que lea estos términos contigo.
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac efficitur lectus. Donec felis orci, facilisis non molestie et, imperdiet vitae enim. Quisque non libero metus. Aenean ligula nibh, vehicula et bibendum quis, vehicula nec diam. Vestibulum lacus eros, ultrices sit amet sagittis in, imperdiet quis metus. Nunc ullamcorper tempus nibh sit amet aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere sagittis purus, rutrum lobortis eros imperdiet nec. Fusce a mauris massa.
 
-                            Si eres padre, madre o tutor legal y permites a tu hijo/a que utilice los servicios, se te aplican estos términos y eres responsable de la actividad que realice en los servicios.
+Praesent ut lobortis justo, at dictum diam. Suspendisse potenti. Pellentesque eget laoreet ex. Integer nec posuere sapien, vel tempor justo. Aliquam ut tortor urna. Morbi at condimentum augue. Suspendisse et lectus eget sapien sodales tincidunt a sit amet justo. Morbi lacus tortor, condimentum eget blandit nec, volutpat sed erat. Aliquam semper magna neque, molestie consectetur urna rutrum a. Aenean eleifend ultricies neque auctor aliquam. Pellentesque vitae augue at sapien condimentum viverra id at dolor.
 
-                            Algunos servicios de Google tienen requisitos de edad mínima adicionales, como se describe en sus términos y políticas adicionales específicos." />
+Curabitur pretium elementum mattis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed fringilla diam vel eleifend vestibulum. Nullam maximus est a maximus varius. Cras sollicitudin ut elit id elementum. Aliquam erat volutpat. Curabitur id sagittis tortor. Curabitur et metus at nisl mattis auctor sit amet nec massa. Nunc neque dui, dapibus eget urna at, condimentum porttitor massa. Nunc viverra quam et risus ultrices fermentum. Sed gravida luctus ante a tristique. Pellentesque dictum erat mauris, ac euismod leo condimentum eu. Integer fermentum augue a odio accumsan efficitur. Donec iaculis eget felis et commodo.
+
+Suspendisse in lacus mattis, mollis dolor quis, consequat quam. Maecenas at turpis aliquet, aliquam leo eget, malesuada libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer eleifend bibendum velit in sodales. Donec vestibulum tempus pretium. Etiam congue, urna sagittis tempor dictum, massa turpis varius sem, a condimentum lorem nisl id est. Suspendisse lacinia magna ut elementum venenatis. Fusce blandit leo nec dictum tempus. Donec neque nunc, fermentum in bibendum ut, feugiat porta libero. Fusce ullamcorper dignissim erat, et commodo ipsum commodo in. Praesent eros neque, dignissim ac gravida vitae, sagittis eu sapien. Cras egestas, odio ac placerat eleifend, libero metus pulvinar diam, facilisis suscipit nulla dui ac arcu. Duis mollis urna in urna aliquam posuere.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius tempor velit, non blandit leo feugiat nec. Etiam molestie quam at quam commodo, ut sagittis libero vestibulum. Ut feugiat pharetra nisi sit amet luctus. Maecenas ut tristique risus. Donec ultricies, purus vitae porttitor consequat, leo turpis molestie sem, vitae ultrices lorem purus tincidunt velit. Morbi eget hendrerit quam, sed euismod arcu."
+            />
     </ScrollView>
 
-    <!-- Botón aceptar -->
     <Button
         android:id="@+id/btn_aceptar_tyc"
         android:layout_width="match_parent"
