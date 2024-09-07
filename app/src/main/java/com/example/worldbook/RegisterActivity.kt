@@ -48,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show()
             }else{
                 if(password!=passwordAgain){
-                    Toast.makeText(this,"Contrasenia no coincide",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Contraseña no coincide",Toast.LENGTH_SHORT).show()
                 }else{
                     val intent = Intent(this, TerminosYCondicionesActivity::class.java)
                     startActivity(intent)

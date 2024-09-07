@@ -5,6 +5,88 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/vainilla"
     tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text="WorldBook"
+        android:fontFamily="cursive"
+        android:textSize="50dp"
+        android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="Home"
+            android:fontFamily="cursive"
+            android:textSize="30dp"
+            android:textColor="@color/black" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnExplorarLibros"
+        android:layout_margin="20dp"
+        android:text="Explorar Libros"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/vainilla"
+        android:background="@color/brown"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMiBiblioteca"
+            android:layout_margin="20dp"
+            android:text="Mi Biblioteca"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/vainilla"
+            android:background="@color/brown"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnFavoritos"
+            android:layout_margin="20dp"
+            android:text="Favoritos"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/vainilla"
+            android:background="@color/brown"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnYaLeidos"
+            android:layout_margin="20dp"
+            android:text="Ya Leídos"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/vainilla"
+            android:background="@color/brown"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCerrarSesión"
+            android:layout_margin="20dp"
+            android:text="Cerrar Sesión"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/vainilla"
+            android:background="@color/brown"/>
+
+</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
