@@ -1,5 +1,6 @@
 package com.example.worldbook
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -36,9 +37,9 @@ class HomeActivity : AppCompatActivity() {
             var mensaje = "Botón Explorar Libros"
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
         }
-        btnMiBiblioteca.setOnClickListener{
-            var mensaje = "Botón Mi Biblioteca"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+        btnMiBiblioteca.setOnClickListener {
+            val intent = Intent(this, MiBibliotecaActivity::class.java)
+            startActivity(intent)
         }
         btnFavoritos.setOnClickListener{
             var mensaje = "Botón Favoritos"

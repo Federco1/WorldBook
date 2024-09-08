@@ -13,6 +13,9 @@
         android:theme="@style/Theme.WorldBook"
         tools:targetApi="31">
         <activity
+            android:name=".MiBibliotecaActivity"
+            android:exported="false" />
+        <activity
             android:name=".LeidosActivity"
             android:exported="false" />
         <activity
