@@ -10,11 +10,18 @@
     android:background="@color/vainilla"
     tools:context=".HomeActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbal_layout"
+
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginTop="25pt">
 
     <TextView
         android:layout_width="match_parent"
@@ -47,15 +54,6 @@
         android:textColor="@color/vainilla"
         android:background="@color/brown"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMiBiblioteca"
-            android:layout_margin="20dp"
-            android:text="Mi Biblioteca"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/vainilla"
-            android:background="@color/brown"/>
 
         <Button
             android:layout_width="match_parent"
@@ -73,16 +71,6 @@
             android:id="@+id/btnYaLeidos"
             android:layout_margin="20dp"
             android:text="Ya Leídos"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/vainilla"
-            android:background="@color/brown"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCerrarSesión"
-            android:layout_margin="20dp"
-            android:text="Cerrar Sesión"
             android:layout_marginTop="16dp"
             android:textColor="@color/vainilla"
             android:background="@color/brown"/>
