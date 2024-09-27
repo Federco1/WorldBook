@@ -50,6 +50,8 @@ class RegisterActivity : AppCompatActivity() {
                 if(password!=passwordAgain){
                     Toast.makeText(this,"Contraseña no coincide",Toast.LENGTH_SHORT).show()
                 }else{
+                    var nuevoUsuario = DatosUsuario(email,usuario,password)
+                    DataBase.getDatabase(applicationContext).DatosUsuarioDao().insert(nuevoUsuario)
                     val intent = Intent(this, TerminosYCondicionesActivity::class.java)
                     startActivity(intent)
                 }
