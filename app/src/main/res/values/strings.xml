@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">WorldBook</string>
     <string name="titulo">Opciones</string>
+    <string name="biblioteca_Titulo">Mi Biblioteca</string>
     <string name="item_listado">Mi Biblioteca</string>
     <string name="item_cerrar_sesion">Cerrar Sesión\n</string>
     <string name="item_mi_biblioteca">Mi Biblioteca\n</string>
+    <string name="boton_volver">volver</string>
 </resources>

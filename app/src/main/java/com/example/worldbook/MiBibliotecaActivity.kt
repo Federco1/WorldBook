@@ -1,6 +1,9 @@
 package com.example.worldbook
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
@@ -13,16 +16,21 @@ import androidx.recyclerview.widget.RecyclerView
 class MiBibliotecaActivity : AppCompatActivity() {
     lateinit var rvLibros: RecyclerView
     lateinit var librosAdapter: LibroAdapter
+    lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mi_biblioteca)
-       // ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-         //   val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-           // v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+        //ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            //val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             //insets
         //}
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = resources.getString(R.string.biblioteca_Titulo)//resources.getString(R.string.titulo)
 
         rvLibros = findViewById(R.id.rvLibros)
         librosAdapter = LibroAdapter(getLibros(),this)
@@ -60,5 +68,19 @@ class MiBibliotecaActivity : AppCompatActivity() {
 
         return libros
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_mibiblioteca, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.item_volver){
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

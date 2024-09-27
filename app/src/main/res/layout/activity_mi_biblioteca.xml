@@ -8,6 +8,14 @@
     tools:context=".MiBibliotecaActivity"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbal_layout"
+
+        />
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLibros"
         android:layout_width="match_parent"
