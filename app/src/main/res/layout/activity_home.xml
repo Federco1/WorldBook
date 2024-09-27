@@ -34,7 +34,7 @@
             android:text="Home"
             android:fontFamily="cursive"
             android:textSize="30dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"/>
 
 
     <Button
@@ -45,7 +45,7 @@
         android:text="Explorar Libros"
         android:layout_marginTop="16dp"
         android:textColor="@color/vainilla"
-        android:background="@color/brown"/>
+        android:background="@color/brown" />
 
         <Button
             android:layout_width="match_parent"
@@ -83,10 +83,8 @@
             android:id="@+id/btnCerrarSesión"
             android:layout_margin="20dp"
             android:text="Cerrar Sesión"
-            android:layout_marginTop="16dp"
             android:textColor="@color/vainilla"
             android:background="@color/brown"/>
 
 </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
