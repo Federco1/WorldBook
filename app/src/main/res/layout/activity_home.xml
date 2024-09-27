@@ -10,11 +10,18 @@
     android:background="@color/vainilla"
     tools:context=".HomeActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbal_layout"
+
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginTop="25pt">
 
     <TextView
         android:layout_width="match_parent"
@@ -34,7 +41,7 @@
             android:text="Home"
             android:fontFamily="cursive"
             android:textSize="30dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
 
     <Button
@@ -45,17 +52,8 @@
         android:text="Explorar Libros"
         android:layout_marginTop="16dp"
         android:textColor="@color/vainilla"
-        android:background="@color/brown" />
+        android:background="@color/brown"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMiBiblioteca"
-            android:layout_margin="20dp"
-            android:text="Mi Biblioteca"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/vainilla"
-            android:background="@color/brown"/>
 
         <Button
             android:layout_width="match_parent"
@@ -77,14 +75,6 @@
             android:textColor="@color/vainilla"
             android:background="@color/brown"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCerrarSesión"
-            android:layout_margin="20dp"
-            android:text="Cerrar Sesión"
-            android:textColor="@color/vainilla"
-            android:background="@color/brown"/>
-
 </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
