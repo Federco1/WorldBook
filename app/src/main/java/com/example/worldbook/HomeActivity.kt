@@ -19,11 +19,13 @@ class HomeActivity : AppCompatActivity() {
     lateinit var btnYaLeidos: Button
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
+
+        saludarUsuario()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -61,10 +63,22 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, MiBibliotecaActivity::class.java)
             startActivity(intent)
         }
-        if(item.itemId == R.id.item_cerrar_sesion) {
+        if (item.itemId == R.id.item_cerrar_sesion) {
+            val preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
+            preferencias.edit().clear().apply()
+
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun saludarUsuario() {
+        val bundle: Bundle? = intent.extras
+        if (bundle != null) {
+            val nombreUsuario = bundle?.getString(resources.getString(R.string.nombre_usuario))
+            Toast.makeText(this, "Bienvenido/a $nombreUsuario", Toast.LENGTH_LONG).show()
+        }
     }
 }

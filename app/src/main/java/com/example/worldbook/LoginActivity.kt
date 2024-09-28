@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-
 class LoginActivity : AppCompatActivity() {
     lateinit var etNombreUsuario: EditText
     lateinit var etPassword: EditText
@@ -35,31 +34,46 @@ class LoginActivity : AppCompatActivity() {
         btnIniciarSesion=findViewById(R.id.btnIniciarSesion)
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario)
 
+        var preferencias =
+            getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
+        var usuarioGuardado =
+            preferencias.getString(resources.getString(R.string.nombre_usuario), "")
+        var passwordGuardado =
+            preferencias.getString(resources.getString(R.string.password_usuario), "")
+
+        if (usuarioGuardado != "" && passwordGuardado != "") {
+            if (usuarioGuardado != null) {
+                startHomeActivity(usuarioGuardado)
+            }
+        }
+
         btnIniciarSesion.setOnClickListener {
             var usuario=etNombreUsuario.text.toString()
+            var password = etPassword.text.toString()
 
-
-            if (usuario.isEmpty() || etPassword.text.toString().isEmpty()){
+            if (usuario.isEmpty() || password.isEmpty()){
                 var mensaje = " Faltan completar campos"
                 Toast.makeText(this,mensaje, Toast.LENGTH_SHORT).show()
-            }else{
-
-                if(cbRecordarUsuario.isChecked){
-                    Log.i("TODO","Funcionalidad de recordar usuario y contraseña")
+            } else {
+                if (cbRecordarUsuario.isChecked) {
+                    var preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
+                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), usuario).apply()
+                    preferencias.edit().putString(resources.getString(R.string.password_usuario), password).apply()
                 }
-                val intent = Intent(this,HomeActivity::class.java)
-                intent.putExtra("NOMBRE",usuario)
-                startActivity(intent)
-                finish()
+                startHomeActivity(usuario)
             }
-
-
-
         }
 
         btnCrearUsuario.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun startHomeActivity(usuario: String) {
+        val intent = Intent(this,HomeActivity::class.java)
+        intent.putExtra(resources.getString(R.string.nombre_usuario),usuario)
+        startActivity(intent)
+        finish()
     }
 }

@@ -6,4 +6,7 @@
     <string name="item_cerrar_sesion">Cerrar Sesión\n</string>
     <string name="item_mi_biblioteca">Mi Biblioteca\n</string>
     <string name="boton_volver">volver</string>
+    <string name="nombre_usuario">Nombre</string>
+    <string name="password_usuario">Password</string>
+    <string name="sp_credenciales">SP_CREDENCIALES</string>
 </resources>

@@ -19,15 +19,12 @@
 
         />
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresar Usuario: "
         android:textSize="25dp"
         android:layout_marginTop="175dp"
-
 
         />
 
@@ -46,6 +43,7 @@
         android:layout_height="wrap_content"
         android:text="Ingresar Contraseña: "
         android:textSize="25dp"
+
         />
 
     <EditText
@@ -63,6 +61,7 @@
         android:layout_height="wrap_content"
         android:text="Recordar Usuario"
         android:id="@+id/cbRecordarUsuario"
+
         />
 
     <Button
@@ -73,6 +72,7 @@
         android:text="Iniciar Sesión"
         android:textColor="@color/vainilla"
         android:background="@color/brown"
+
         />
 
     <Button
@@ -85,7 +85,5 @@
         android:background="@color/brown"
 
         />
-
-
 
 </LinearLayout>
