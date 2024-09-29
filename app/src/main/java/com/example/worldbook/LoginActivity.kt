@@ -55,14 +55,34 @@ class LoginActivity : AppCompatActivity() {
                 var mensaje = " Faltan completar campos"
                 Toast.makeText(this,mensaje, Toast.LENGTH_SHORT).show()
             } else {
+
+                // Verificar en la base de datos usando Room
+                val db = DataBase.getDatabase(applicationContext)
+                val userDao = db.DatosUsuarioDao()
+                val usuarioDB = userDao.getUserByUsername(usuario) // Cambia la consulta por el nombre de usuario
+
+
+                if (usuarioDB != null) {
+                    if (usuarioDB.password == password) {
+
                 if (cbRecordarUsuario.isChecked) {
                     var preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
                     preferencias.edit().putString(resources.getString(R.string.nombre_usuario), usuario).apply()
                     preferencias.edit().putString(resources.getString(R.string.password_usuario), password).apply()
                 }
                 startHomeActivity(usuario)
+            } else {
+                        Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
+
+
+
 
         btnCrearUsuario.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)
