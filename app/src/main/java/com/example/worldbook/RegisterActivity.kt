@@ -47,13 +47,25 @@ class RegisterActivity : AppCompatActivity() {
                 var mensaje = "Complete todos los campos"
                 Toast.makeText(this,mensaje,Toast.LENGTH_SHORT).show()
             }else{
-                if(password!=passwordAgain){
-                    Toast.makeText(this,"Contraseña no coincide",Toast.LENGTH_SHORT).show()
+                if (password != passwordAgain) {
+                    Toast.makeText(this, "Contraseña no coincide", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Verificar si el usuario o el email ya existen en la base de datos usando DatosUsuarioDao
+                    val db = DataBase.getDatabase(applicationContext)
+                    val userDao = db.DatosUsuarioDao()  // Aquí usas tu DAO llamado DatosUsuarioDao
+
+                    // Comprobar si el email o usuario ya están registrados
+                    val usuarioExistente = userDao.getUserByUsername(usuario)
+                    val emailExistente = userDao.getUserByEmail(email)
+
+                    if (usuarioExistente != null || emailExistente != null) {
+                        Toast.makeText(this, "El usuario o email ya están registrados", Toast.LENGTH_SHORT).show()
                 }else{
                     var nuevoUsuario = DatosUsuario(email,usuario,password)
                     DataBase.getDatabase(applicationContext).DatosUsuarioDao().insert(nuevoUsuario)
                     val intent = Intent(this, TerminosYCondicionesActivity::class.java)
                     startActivity(intent)
+                    }
                 }
             }
         }
