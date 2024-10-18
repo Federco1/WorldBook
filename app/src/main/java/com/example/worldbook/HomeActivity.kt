@@ -40,8 +40,11 @@ class HomeActivity : AppCompatActivity() {
         btnYaLeidos = findViewById(R.id.btnYaLeidos)
 
         btnExplorarLibros.setOnClickListener {
-            val mensaje = "Botón Explorar Libros"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+            /*val mensaje = "Botón Explorar Libros"
+            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()*/
+            val intent = Intent(this, CatalogoActivity::class.java)
+            startActivity(intent)
+
         }
         btnFavoritos.setOnClickListener{
             val mensaje = "Botón Favoritos"

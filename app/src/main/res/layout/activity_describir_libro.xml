@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/vainilla"
+    tools:context=".describirLibro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/bookCoverImageView"
+            android:layout_width="175dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/book_cover"
+
+            />
+
+        <!-- TextView para el título del libro -->
+        <TextView
+            android:id="@+id/bookTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titulo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"
+            />
+
+        <!-- TextView para el autor del libro -->
+        <TextView
+            android:id="@+id/bookAuthorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Autor"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:id="@+id/bookPublisherTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="editorial"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
+            />
+
+        <TextView
+            android:id="@+id/bookPublishedDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="publicado"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:id="@+id/bookDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Botón Comprar -->
+            <Button
+                android:id="@+id/btnComprar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar libro"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/vainilla"
+                android:background="@color/brown"/>
+
+            <!-- Botón Añadir a Biblioteca -->
+            <Button
+                android:id="@+id/btnAniadirABiblioteca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Añadir libro a biblioteca"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/vainilla"
+                android:background="@color/brown"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAniadirFavorito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Añadir a favoritos"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/vainilla"
+            android:background="@color/brown"
+            android:layout_marginTop="8dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

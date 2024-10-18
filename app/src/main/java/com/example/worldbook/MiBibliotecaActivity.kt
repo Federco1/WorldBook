@@ -32,9 +32,9 @@ class MiBibliotecaActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.title = resources.getString(R.string.biblioteca_Titulo)//resources.getString(R.string.titulo)
 
-        rvLibros = findViewById(R.id.rvLibros)
+        /*rvLibros = findViewById(R.id.rvLibros)
         librosAdapter = LibroAdapter(getLibros(),this)
-        rvLibros.adapter = librosAdapter
+        rvLibros.adapter = librosAdapter*/
 
         //val libros = arrayOf(
             //"Cumbres borrascosas",
