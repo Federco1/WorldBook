@@ -46,9 +46,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        btnFavoritos.setOnClickListener{
-            val mensaje = "Botón Favoritos"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+        btnFavoritos.setOnClickListener {
+            val intent = Intent(this, FavoritosActivity::class.java)
+            startActivity(intent)
         }
         btnYaLeidos.setOnClickListener {
             val mensaje = "Botón Ya Leídos"

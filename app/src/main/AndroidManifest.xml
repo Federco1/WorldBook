@@ -3,12 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
-
-
 
     <application
         android:allowBackup="true"
@@ -20,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WorldBook"
         tools:targetApi="31">
+        <activity
+            android:name=".FavoritosActivity"
+            android:exported="false" />
         <activity
             android:name=".describirLibro"
             android:exported="false" />
@@ -70,7 +69,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_books_key" />
 
-        <service android:name=".RecordarUsuario" android:exported="false"/>
+        <service
+            android:name=".RecordarUsuario"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,8 +1,10 @@
 package com.example.worldbook
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -40,5 +42,27 @@ class describirLibro : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.bookCoverImageView)
         Glide.with(this).load(coverUrl).into(imageView)
 
+        // Configurar el botón para añadir a favoritos
+        val btnAniadirFavorito = findViewById<Button>(R.id.btnAniadirFavorito)
+        btnAniadirFavorito.setOnClickListener {
+            // Crear un BookItem con los datos actuales
+            val bookItem = BookItem(
+                id = "0", // ID ficticio, si tienes un ID real lo puedes usar
+                volumeInfo = VolumeInfo(
+                    title = title ?: "",
+                    authors = listOf(author ?: ""),
+                    publisher = publisher ?: "",
+                    publishedDate = publishedDate ?: "",
+                    description = description ?: "",
+                    imageLinks = ImageLinks(coverUrl ?: "")
+                )
+            )
+
+            // Añadir a favoritos usando el FavoritosManager
+            FavoritosManager.agregarFavorito(bookItem)
+
+            // Mostrar un Toast
+            Toast.makeText(this, "Añadido a Favoritos", Toast.LENGTH_SHORT).show()
+        }
     }
 }

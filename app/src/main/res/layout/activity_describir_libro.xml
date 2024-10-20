@@ -93,18 +93,8 @@
                 android:textColor="@color/vainilla"
                 android:background="@color/brown"/>
 
-            <!-- Botón Añadir a Biblioteca -->
-            <Button
-                android:id="@+id/btnAniadirABiblioteca"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Añadir libro a biblioteca"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:textColor="@color/vainilla"
-                android:background="@color/brown"/>
-        </LinearLayout>
 
+        </LinearLayout>
         <Button
             android:id="@+id/btnAniadirFavorito"
             android:layout_width="match_parent"
@@ -115,6 +105,8 @@
             android:background="@color/brown"
             android:layout_marginTop="8dp"
             />
+
+
 
         <View
             android:layout_width="match_parent"
