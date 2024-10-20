@@ -7,7 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/vainilla"
-    tools:context=".CatalogoActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".CatalogoActivity"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbal_layout" />
 
     <LinearLayout
         android:weightSum="1"

@@ -85,10 +85,6 @@ class describirLibro : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.item_mi_biblioteca -> {
-                startActivity(Intent(this, MiBibliotecaActivity::class.java))
-                true
-            }
             R.id.item_cerrar_sesion -> {
                 val preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
                 preferencias.edit().clear().apply()

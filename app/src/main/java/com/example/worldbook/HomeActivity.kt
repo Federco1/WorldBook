@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
-import android.widget.Toolbar
+
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,7 +16,6 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var btnExplorarLibros: Button
     lateinit var btnFavoritos: Button
-    lateinit var btnYaLeidos: Button
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,6 @@ class HomeActivity : AppCompatActivity() {
 
         btnExplorarLibros = findViewById(R.id.btnExplorarLibros)
         btnFavoritos = findViewById(R.id.btnFavoritos)
-        btnYaLeidos = findViewById(R.id.btnYaLeidos)
 
         btnExplorarLibros.setOnClickListener {
             /*val mensaje = "Botón Explorar Libros"
@@ -50,10 +48,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, FavoritosActivity::class.java)
             startActivity(intent)
         }
-        btnYaLeidos.setOnClickListener {
-            val mensaje = "Botón Ya Leídos"
-            Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
-        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,10 +57,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.item_mi_biblioteca) {
-            val intent = Intent(this, MiBibliotecaActivity::class.java)
-            startActivity(intent)
-        }
         if (item.itemId == R.id.item_cerrar_sesion) {
             val preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
             preferencias.edit().clear().apply()
