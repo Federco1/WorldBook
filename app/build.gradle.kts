@@ -63,4 +63,6 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
 
+    implementation ("com.google.android.gms:play-services-maps:17.0.0")
+
 }
