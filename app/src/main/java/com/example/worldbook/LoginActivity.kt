@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -28,11 +29,27 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
         etNombreUsuario=findViewById(R.id.etNombreUsuario)
         etPassword=findViewById(R.id.etPassword)
         cbRecordarUsuario=findViewById(R.id.cbRecordarUsuario)
         btnIniciarSesion=findViewById(R.id.btnIniciarSesion)
         btnCrearUsuario=findViewById(R.id.btnCrearUsuario)
+
+        cbRecordarUsuario.setOnCheckedChangeListener { _, isChecked ->
+            val intent = Intent(this, RecordarUsuario::class.java)
+            if (isChecked) {
+                // Iniciar el servicio en primer plano
+                ContextCompat.startForegroundService(this,intent)
+            } else {
+                // Detener el servicio
+                stopService(intent)
+            }
+        }
+
+
+
 
         var preferencias =
             getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
@@ -69,6 +86,8 @@ class LoginActivity : AppCompatActivity() {
                     var preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
                     preferencias.edit().putString(resources.getString(R.string.nombre_usuario), usuario).apply()
                     preferencias.edit().putString(resources.getString(R.string.password_usuario), password).apply()
+
+
                 }
                 startHomeActivity(usuario)
             } else {
