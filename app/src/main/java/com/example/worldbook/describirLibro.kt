@@ -1,10 +1,14 @@
 package com.example.worldbook
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,6 +16,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 
 class describirLibro : AppCompatActivity() {
+    private lateinit var toolbar: Toolbar
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,6 +28,12 @@ class describirLibro : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }*/
+
+        // Inicializar y configurar el Toolbar
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Opciones"
+
 
         // Recuperar los datos del Intent
         val title = intent.getStringExtra("title")
@@ -63,6 +76,27 @@ class describirLibro : AppCompatActivity() {
 
             // Mostrar un Toast
             Toast.makeText(this, "Añadido a Favoritos", Toast.LENGTH_SHORT).show()
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_mi_biblioteca -> {
+                startActivity(Intent(this, MiBibliotecaActivity::class.java))
+                true
+            }
+            R.id.item_cerrar_sesion -> {
+                val preferencias = getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
+                preferencias.edit().clear().apply()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
