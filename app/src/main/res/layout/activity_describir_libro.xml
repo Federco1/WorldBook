@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/vainilla"
     tools:context=".describirLibro">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,16 +84,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!-- Botón Comprar -->
-            <Button
-                android:id="@+id/btnComprar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Comprar libro"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:textColor="@color/vainilla"
-                android:background="@color/brown"/>
+
 
 
         </LinearLayout>
