@@ -50,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-
         var preferencias =
             getSharedPreferences(resources.getString(R.string.sp_credenciales), MODE_PRIVATE)
         var usuarioGuardado =

@@ -47,7 +47,7 @@ class RecordarUsuario : Service() {
 
 
     private fun crearChannel() {
-        val importance = NotificationManager.IMPORTANCE_LOW
+        val importance = NotificationManager.IMPORTANCE_HIGH
         val channel = NotificationChannel(CHANNEL_ID, "Recordar Usuario", importance)
         channel.description = "Se va a mostrar cuando se marque la casilla"
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
