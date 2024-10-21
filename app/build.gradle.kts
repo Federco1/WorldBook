@@ -62,6 +62,8 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
 
     implementation ("com.google.android.gms:play-services-maps:17.0.0")
 

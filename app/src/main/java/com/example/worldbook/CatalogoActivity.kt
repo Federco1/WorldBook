@@ -7,21 +7,29 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class CatalogoActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchField: EditText
-    private lateinit var searchButton: Button
+    private lateinit var searchButtonByAuthor: Button
     private lateinit var adapter: LibroAdapter
     private lateinit var toolbar: Toolbar
+    private var libros: List<BookItem> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,45 +46,79 @@ class CatalogoActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.bookList)
         searchField = findViewById(R.id.searchField)
-        searchButton = findViewById(R.id.searchButton)
+        searchButtonByAuthor = findViewById(R.id.searchButtonByAuthor)
 
         // Configurar el RecyclerView con un LayoutManager
         recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = LibroAdapter(libros)
+        recyclerView.adapter = adapter
 
         // Establecer acción del botón de búsqueda
-        searchButton.setOnClickListener {
-            val query = searchField.text.toString()
+        searchButtonByAuthor.setOnClickListener {
+            val query = searchField.text.toString().trim()
             if (query.isNotEmpty()) {
-                searchBooks(query) // Hacer la búsqueda
+                searchBooksByAuthor(query) // Hacer la búsqueda
+            } else {
+                Toast.makeText(this, "Ingresar autor para buscar", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
 
-    private fun searchBooks(query: String) {
-        val bookApi = RetrofitClient.instance.create(LibroEndpoints::class.java)
-        val call = bookApi.searchBooks(query)
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://www.googleapis.com/books/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
+    private fun searchBooksByAuthor(author: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val call = getRetrofit().create(LibroEndpoints::class.java)
+                    .searchBooksByAuthor("inauthor:$author")
+                    .execute()
 
-        call.enqueue(object : Callback<BookResponse> {
-            override fun onResponse(call: Call<BookResponse>, response: Response<BookResponse>) {
-                if (response.isSuccessful) {
-                    val libros = response.body()?.items ?: emptyList()
-                    Log.d("MainActivity", "Libros encontrados: ${libros.size}")
-
-                    // Configurar adaptador con los datos obtenidos de los libros
-                    adapter = LibroAdapter(libros)
-                    recyclerView.adapter = adapter
-                } else {
-                    Log.e("MainActivity", "Error en la respuesta: ${response.code()}")
+                withContext(Dispatchers.Main) {
+                    if (call.isSuccessful) {
+                        val booksResponse = call.body()
+                        if (booksResponse != null) {
+                            // Filtrar libros por coincidencia exacta del autor
+                            val filteredBooks = booksResponse.items.filter { book ->
+                                book.volumeInfo.authors?.any {
+                                    it.equals(author, ignoreCase = true)
+                                } == true
+                            }
+                            if (filteredBooks.isNotEmpty()) {
+                                initBooks(filteredBooks)
+                            } else {
+                                showErrorDialog("No se encontraron libros del autor: $author")
+                            }
+                        } else {
+                            showErrorDialog("No se encontraron libros.")
+                        }
+                    } else {
+                        showErrorDialog("Error en la respuesta: ${call.message()}")
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    showErrorDialog("Se produjo un error: ${e.localizedMessage}")
                 }
             }
-
-            override fun onFailure(call: Call<BookResponse>, t: Throwable) {
-                Log.e("MainActivity", "Error en la petición: ${t.message}")
-            }
-        })
+        }
     }
+
+    private fun initBooks(filteredBooks: List<BookItem>) {
+        libros = filteredBooks
+        adapter = LibroAdapter(libros)
+        recyclerView.adapter = adapter
+    }
+
+    private fun showErrorDialog(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)

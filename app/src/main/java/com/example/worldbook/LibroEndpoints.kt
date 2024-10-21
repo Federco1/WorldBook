@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface LibroEndpoints {
     @GET("volumes")
-    fun searchBooks(
-        @Query("q") query: String
+    fun searchBooksByAuthor(
+        @Query("q") author: String
     ): Call<BookResponse>
 }
