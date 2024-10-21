@@ -49,6 +49,17 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val logoFragmento = LogoFragmento()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.logo_contenedor, logoFragmento)
+            .addToBackStack(null)
+            .commit()
+
+        val textoFragmento = TextoFragmento()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.texto_contenedor, textoFragmento)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

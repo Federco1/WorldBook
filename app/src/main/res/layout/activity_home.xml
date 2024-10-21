@@ -21,7 +21,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginTop="25pt">
+        android:layout_marginTop="25pt"
+        android:layout_weight="1">
 
     <TextView
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
         android:text="WorldBook"
         android:fontFamily="cursive"
         android:textSize="50dp"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:text="Home"
             android:fontFamily="cursive"
             android:textSize="30dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"/>
 
 
     <Button
@@ -65,7 +66,24 @@
             android:textColor="@color/vainilla"
             android:background="@color/brown"/>
 
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/logo_contenedor"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:foregroundGravity="left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFavoritos"
+        tools:ignore="NotSibling"
+        android:layout_marginLeft="16dp"/>
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/texto_contenedor"
+        android:layout_width="285dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logo_contenedor"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
